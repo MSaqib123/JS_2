@@ -1,5 +1,6 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let totalScore = 0;
 //=================================
 // click on Check
 //=================================
@@ -12,6 +13,12 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (guessValue == secretNumber) {
     //When number is Correct
     document.querySelector(".number").textContent = `${secretNumber}`;
+    document.querySelector(".highscore").textContent = `${score}`;
+
+    let lastValue = Number(document.querySelector(".totalScore").textContent);
+    lastValue += score;
+    document.querySelector(".totalScore").textContent = lastValue;
+
     document.querySelector(".message").textContent =
       "😃🙋‍♂️ Number Match -- Good";
     document.querySelector("body").style.backgroundColor = "Green";
@@ -43,12 +50,14 @@ document.querySelector(".check").addEventListener("click", function () {
 // click on Reset
 //=================================
 document.querySelector(".reset").addEventListener("click", function () {
+  let lastScore = Number(document.querySelector(".highscore").textContent);
   document.querySelector("body").style.backgroundColor = "white";
   document.querySelector("body").style.color = "black";
   document.querySelector(".guesstxt").value = "";
   document.querySelector(".score").textContent = "20";
   document.querySelector(".message").textContent = "Select ....";
   document.querySelector(".number").textContent = "?";
-  score = 20;
+
   secretNumber = Math.trunc(Math.random() * 20) + 1;
+  score = 20;
 });
