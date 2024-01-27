@@ -11,7 +11,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent =
       "😃🙋‍♂️ Number Match -- Good";
   } else if (guessValue > secretNumber) {
-    if (guessValue > 1) {
+    if (score > 1) {
       document.querySelector(".message").textContent = "📈 To Heigh";
       score--;
       document.querySelector(".score").textContent = score;
@@ -20,8 +20,13 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = 0;
     }
   } else if (guessValue < secretNumber) {
-    document.querySelector(".message").textContent = "📉 To Low";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      document.querySelector(".message").textContent = "📉 To Low";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "💥🧨 You lost Game";
+      document.querySelector(".score").textContent = 0;
+    }
   }
 });
