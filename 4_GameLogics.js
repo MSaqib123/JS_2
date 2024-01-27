@@ -1,5 +1,6 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let heighScore = 0;
 let totalScore = 0;
 //=================================
 // click on Check
@@ -13,7 +14,10 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (guessValue == secretNumber) {
     //When number is Correct
     document.querySelector(".number").textContent = `${secretNumber}`;
-    document.querySelector(".highscore").textContent = `${score}`;
+    if (score > heighScore) {
+      heighScore = score;
+      document.querySelector(".highscore").textContent = `${heighScore}`;
+    }
 
     let lastValue = Number(document.querySelector(".totalScore").textContent);
     lastValue += score;
