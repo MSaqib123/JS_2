@@ -1,4 +1,4 @@
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 //=================================
 // click on Check
@@ -50,4 +50,5 @@ document.querySelector(".reset").addEventListener("click", function () {
   document.querySelector(".message").textContent = "Select ....";
   document.querySelector(".number").textContent = "?";
   score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
 });
