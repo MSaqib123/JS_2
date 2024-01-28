@@ -11,6 +11,9 @@ const closeModalBtn = document.querySelector(".close-modal");
 //this give All list that element
 const showModalBtns = document.querySelectorAll(".show-modal");
 
+//===========================
+// --- global method -----
+//===========================
 let showModal = function(){
     //let showBtn = showModalBtns[i];
     // alert(showBtn.textContent);
@@ -25,14 +28,33 @@ let closeModal = function(){
     overlay.classList.add("hidden");
 }
 
-
-//___ show Model ___
+//=================================
+//------- show Model ------
+//=================================
 for (let i = 0; i < showModalBtns.length; i++)
     showModalBtns[i].addEventListener("click",showModal)
 
-//___ close Model ___
+//=======================================
+// ---- close Model ----
+//=================================
 closeModalBtn.addEventListener("click",closeModal);
 overlay.addEventListener("click",closeModal);
+
+
+//=================================
+// -- closeModel by click ---
+//=================================
+//___ GlobalEvent ____
+document.addEventListener('keydown',function(e){//event){
+    // alert("You press key");
+    //___ event Argument object (e) ___
+    // console.log(e);
+    // alert(e.key);
+    if(e.key === "Escape" && !modal.classList.contains('hidden')){
+        closeModal();
+        // console.log("sd");   //without  hidden    escape  press krnaa par  event work rha tha. which is not good for optimization
+    }
+})
 
 
 
