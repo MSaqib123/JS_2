@@ -6,7 +6,14 @@ let totalScore = 0;
 //=================================
 // click on Check
 //=================================
-document.querySelector(".check").addEventListener("click", function () {
+document.querySelector(".check").addEventListener("click",gameFun);
+document.querySelector(".reset").addEventListener("click", resetFn);
+
+
+//================================
+// Game Function
+//=================================
+let gameFun= function() {
   var guessValue = Number(changeDOM(".guesstxt",'input',true,true));
   if (!guessValue)
   {
@@ -49,12 +56,12 @@ document.querySelector(".check").addEventListener("click", function () {
       changeDOM(".score",0);
     }
   }
-});
+}
 
 //=================================
-// click on Reset
+// Reset Function
 //=================================
-document.querySelector(".reset").addEventListener("click", function ()
+let resetFn = function ()
 {
   changeDOM("body","white",false,false,true,"backgroundColor");
   changeDOM("body","white",false,false,true,"color");
@@ -64,13 +71,13 @@ document.querySelector(".reset").addEventListener("click", function ()
   changeDOM(".score","20");
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   score = 20;
-});
+}
 
 //=================================
 // Refectering don't repeat your self
 //=================================
 //___ TextContent ___
-let changeDOM = function (selecter, values , number , returns,isStyle,property) {
+let changeDOM = function (selecter, values , number , returns,isStyle,propertis) {
   if(number == true && returns == true && values == "input"){
     return Number(document.querySelector(selecter).value);
   }
@@ -78,7 +85,7 @@ let changeDOM = function (selecter, values , number , returns,isStyle,property) 
     return Number(document.querySelector(selecter).textContent);
   }
   else if(isStyle == true){
-    document.querySelector(selecter).style.property = values;
+    document.querySelector(selecter).style.propertis = values;
   }
   else{
     document.querySelector(selecter).textContent = values;
