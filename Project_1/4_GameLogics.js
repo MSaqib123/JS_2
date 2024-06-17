@@ -3,12 +3,6 @@ let score = 20;
 let heighScore = 0;
 let totalScore = 0;
 
-//=================================
-// click on Check
-//=================================
-document.querySelector(".check").addEventListener("click",gameFun);
-document.querySelector(".reset").addEventListener("click", resetFn);
-
 
 //================================
 // Game Function
@@ -91,3 +85,10 @@ let changeDOM = function (selecter, values , number , returns,isStyle,propertis)
     document.querySelector(selecter).textContent = values;
   }
 };
+
+
+//=================================
+// click on Check
+//=================================
+document.querySelector(".check").addEventListener("click",gameFun);
+document.querySelector(".reset").addEventListener("click", resetFn);
